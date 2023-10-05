@@ -4,10 +4,21 @@
 class Alien extends Entety {
     moveAlien = () => { this.y += step };
     alienPrintMove = () => {
-        if (this.stop) {
+        if (this.gameOver) {
+            cnt.clearRect(0, 0, canvas.width, canvas.height);
             cancelAnimationFrame(this.frameId);
             this.frameId = null;
+
+            return;
+        }
+
+        if (this.stop) {
             cnt.clearRect(this.x, this.y - 5, this.width, this.height + 5);
+
+            this.y = randomPositionY();
+            this.x = randomPositionX();
+
+            this.stop = false;
             return;
         }
 
@@ -17,7 +28,7 @@ class Alien extends Entety {
             cnt.drawImage(this.img, this.x, this.y, this.width, this.height);
 
             this.moveAlien();
-            // gameOver();
+            gameOver();
             if (this.y < canvas.height) {
                 this.alienPrintMove();
             } else {

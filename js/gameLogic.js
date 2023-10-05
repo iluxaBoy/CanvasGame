@@ -11,8 +11,8 @@ const collides = (pointA, pointB) => {
 const gameOver = () => {
     alienArr.forEach(Alien => {
         if (collides(player, Alien)) {
-            Alien.stopPrint();
-            player.stopPrint();
+            Alien.gameEnd();
+            player.gameEnd();
 
             cnt.clearRect(0, 0, canvas.width, canvas.height);
         }
@@ -23,6 +23,8 @@ const kill = () => {
     for (const Alien in alienArr) {
         if (collides(laser, alienArr[Alien])) {
             alienArr[Alien].stopPrint();
+            score++;
+            scoreHolder.textContent = score;
         }
     }
 };
