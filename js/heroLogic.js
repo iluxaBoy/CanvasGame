@@ -68,7 +68,7 @@ const shootLaser = (tempX) => {
 
 document.addEventListener("keydown", (e) => {
     if (player.frameId) { return; }
-    if (player.stop) { return; }
+    if (player.gameOver) { return; }
 
     if (e.code === "ArrowRight" || e.code === "ArrowLeft") {
         player.frameId = requestAnimationFrame(() => {

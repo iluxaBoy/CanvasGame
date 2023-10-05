@@ -35,11 +35,10 @@ class Entety {
         this.img = new Image();
         this.frameId = null;
         this.stop = false;
+        this.gameOver = false
     };
-    stopPrint = () => {
-        this.stop = true;
-        this.frameId = null;
-    };
+    stopPrint = () => this.stop = true;
+    gameEnd = () => this.gameOver = true;
     loadImg = () => {
         this.img.onload = () => cnt.drawImage(this.img, this.x, this.y, this.width, this.height);
         this.img.src = this.imgLink;
