@@ -17,7 +17,6 @@ class Alien extends Entety {
             this.x = randomPositionX();
 
             this.stop = false;
-            return;
         }
 
         this.frameId = requestAnimationFrame(() => {
