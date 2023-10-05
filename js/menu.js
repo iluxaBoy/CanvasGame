@@ -1,7 +1,9 @@
 "use strict";
-let score = 0;
+// let score = localStorage.getItem("score");
 
-localStorage
+// if (localStorage.getItem("score")) {
+//     score = localStorage.getItem("score");
+// }
 
 // start.onclick = () => {
 //     menu.remove();

@@ -38,7 +38,9 @@ class Entety {
         this.gameOver = false
     };
     stopPrint = () => this.stop = true;
+
     gameEnd = () => this.gameOver = true;
+
     loadImg = () => {
         this.img.onload = () => cnt.drawImage(this.img, this.x, this.y, this.width, this.height);
         this.img.src = this.imgLink;

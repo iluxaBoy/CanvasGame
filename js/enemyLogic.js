@@ -1,6 +1,4 @@
 "use strict";
-
-// const alien = new Entety(0, 0, 45, 35);
 class Alien extends Entety {
     moveAlien = () => { this.y += step };
     alienPrintMove = () => {
