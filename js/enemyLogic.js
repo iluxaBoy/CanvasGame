@@ -1,0 +1,57 @@
+"use strict";
+
+// const alien = new Entety(0, 0, 45, 35);
+class Alien extends Entety {
+    moveAlien = () => { this.y += step };
+    alienPrintMove = () => {
+        if (this.stop) {
+            cancelAnimationFrame(this.frameId);
+            this.frameId = null;
+            cnt.clearRect(this.x, this.y - 5, this.width, this.height + 5);
+            return;
+        }
+
+        this.frameId = requestAnimationFrame(() => {
+            cnt.clearRect(this.x, this.y - 5, this.width, this.height + 5);
+
+            cnt.drawImage(this.img, this.x, this.y, this.width, this.height);
+
+            this.moveAlien();
+            // gameOver();
+            if (this.y < canvas.height) {
+                this.alienPrintMove();
+            } else {
+                cancelAnimationFrame(this.frameId);
+                this.frameId = null;
+
+                cnt.clearRect(this.x, this.y - 5, this.width, this.height + 5);
+                this.y = randomPositionY();
+                this.x = randomPositionX();
+            }
+        });
+    };
+};
+
+const alienImg = new Image();
+const amountOfAliens = 8;
+
+let alienArr = [];
+
+const randomPositionX = () => {
+    return Math.floor(Math.random() * canvas.width - 25);
+};
+
+const randomPositionY = () => {
+    return Math.floor(Math.random() * -350);
+};
+
+for (let i = 0; i < amountOfAliens; i++) {
+    alienArr.push(new Alien(randomPositionX(), randomPositionY(), 45, 35, "img/alien.png"));
+
+    alienArr[i].loadImg();
+
+    setInterval(() => {
+        if (alienArr[i].frameId) { return; }
+        alienArr[i].alienPrintMove()
+    }, 500);
+}
