@@ -6,26 +6,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <script src="./js/main.js" defer></script>
-    <script src="./js/menu.js" defer></script>
     <script src="./js/heroLogic.js" defer></script>
     <script src="./js/enemyLogic.js" defer></script>
     <script src="./js/gameLogic.js" defer></script>
+    <script src="./js/menu.js" defer></script>
     <!----------------------------->
-    <title>ADD GAME NAME HERE</title>
+    <title>Space Occupiers</title>
     <!----------------------------->
 </head>
 
 <body>
     <div class="container">
         <div id="menu">
-            <h2>Game Name</h2>
+            <h1>Space Occupiers</h1>
             <button id="start">Start</button>
         </div>
         <div id="game">
-            <!-- ADD SCORE -->
-            <div>
-                <h1>Score</h1>
-                <span id="scoreHolder">0</span>
+            <div id="infoHolder">
+                <div class="score">
+                    <h1>Score</h1>
+                    <h2 id="scoreHolder"></h2>
+                </div>
+                <div id="text">
+                    <h1>Game Over</h1>
+                    <div class="GObtn">
+                        <button id="restart">Restart</button>
+                        <button id="menu">Menu</button>
+                    </div>
+                </div>
             </div>
             <canvas>
 
