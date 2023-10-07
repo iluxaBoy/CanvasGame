@@ -4,8 +4,12 @@ class Alien extends Entety {
     alienPrintMove = () => {
         if (player.gameOver) {
             cnt.clearRect(0, 0, canvas.width, canvas.height);
+
             cancelAnimationFrame(this.frameId);
             this.frameId = null;
+
+            this.y = randomPositionY();
+            this.x = randomPositionX();
 
             return;
         }
@@ -53,13 +57,17 @@ const randomPositionY = () => {
     return Math.floor(Math.random() * -350);
 };
 
-for (let i = 0; i < amountOfAliens; i++) {
-    alienArr.push(new Alien(randomPositionX(), randomPositionY(), 45, 35, "img/alien.png"));
+const createAlians = () => {
+    for (let i = 0; i < amountOfAliens; i++) {
+        alienArr.push(new Alien(randomPositionX(), randomPositionY(), 45, 35, "img/alien.png"));
 
-    alienArr[i].loadImg();
+        alienArr[i].loadImg();
 
-    setInterval(() => {
-        if (alienArr[i].frameId) { return; }
-        alienArr[i].alienPrintMove()
-    }, 500);
-}
+        setInterval(() => {
+            if (alienArr[i].frameId) { return; }
+            alienArr[i].alienPrintMove()
+        }, 500);
+    }
+};
+
+createAlians();

@@ -20,10 +20,6 @@ player.loadImg();
 laser.loadImg();
 //----
 
-//Movement
-const laserMove = () => { laser.y -= step };
-//----
-
 // Print movement
 const printMove = (e) => {
     player.frameId = requestAnimationFrame(() => {
