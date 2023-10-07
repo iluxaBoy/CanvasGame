@@ -1,4 +1,7 @@
 "use strict";
+const infoHolder = document.getElementById("infoHolder");
+const text = document.getElementById("text");
+
 let score = 0;
 
 if (localStorage.getItem("score") > 0) {
@@ -17,10 +20,10 @@ const collides = (pointA, pointB) => {
 const gameOver = () => {
     alienArr.forEach(Alien => {
         if (collides(player, Alien)) {
-            Alien.gameEnd();
             player.gameEnd();
 
             cnt.clearRect(0, 0, canvas.width, canvas.height);
+            gameOverScreen();
         }
     });
 };
@@ -30,9 +33,14 @@ const kill = () => {
         if (collides(laser, alienArr[Alien])) {
             alienArr[Alien].stopPrint();
             score++
-            localStorage.setItem("score", score);
-            score = localStorage.getItem("score");
-            scoreHolder.textContent = localStorage.getItem("score");
         }
     }
+    localStorage.setItem("score", score);
+    scoreHolder.textContent = score;
 };
+
+const gameOverScreen = () => {
+    canvas.style.display = "none";
+    infoHolder.className = "gameOver";
+    text.style.display = "flex";
+}

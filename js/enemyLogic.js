@@ -2,7 +2,7 @@
 class Alien extends Entety {
     moveAlien = () => { this.y += step };
     alienPrintMove = () => {
-        if (this.gameOver) {
+        if (player.gameOver) {
             cnt.clearRect(0, 0, canvas.width, canvas.height);
             cancelAnimationFrame(this.frameId);
             this.frameId = null;
