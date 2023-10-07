@@ -11,8 +11,12 @@ restart.onclick = () => {
 
 const restartGame = () => {
     player.gameOver = false;
+
     canvas.style.display = "block";
     infoHolder.className = "";
     text.style.display = "none";
-    console.log(player.gameOver);
+
+    createAlians();
+    player.loadImg();
+    laser.loadImg();
 };
