@@ -15,6 +15,11 @@
 // - стрельба персонажа
 // - счетчик очей
 // - тепорт с края полотна на противополоный край
+const playerKill = new Audio("audio/explosion.wav");
+const shoot = new Audio("audio/shoot.wav");
+const alienKill = new Audio("audio/invaderkilled.wav");
+playerKill.volume = 0.3;
+shoot.volume = 0.3;
 
 const canvas = document.querySelector("canvas");
 canvas.height = 700;
