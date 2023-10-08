@@ -1,4 +1,6 @@
 "use strict";
+
+//Aliens funs made in class because i decided to make an array of aliens so i can track specific alien and his location
 class Alien extends Entety {
     moveAlien = () => { this.y += step };
     alienPrintMove = () => {
@@ -45,10 +47,11 @@ class Alien extends Entety {
 };
 
 const alienImg = new Image();
-const amountOfAliens = 8;
+const amountOfAliens = 0;
 
 let alienArr = [];
 
+//random funs so i can locate alians randomli around the fieald 
 const randomPositionX = () => {
     return Math.floor(Math.random() * canvas.width - 25);
 };
@@ -56,7 +59,9 @@ const randomPositionX = () => {
 const randomPositionY = () => {
     return Math.floor(Math.random() * -350);
 };
+//----
 
+//this fun is creating alliens and adding them to arr
 const createAlians = () => {
     for (let i = 0; i < amountOfAliens; i++) {
         alienArr.push(new Alien(randomPositionX(), randomPositionY(), 45, 35, "img/alien.png"));

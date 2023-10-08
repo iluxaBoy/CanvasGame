@@ -1,5 +1,6 @@
 "use strict";
-
+const shoot = new Audio("audio/shoot.wav");
+// shoot.volume = 1;
 class Player extends Entety {
     moveRight = () => { player.x += step };
     moveLeft = () => { player.x -= step };
@@ -20,7 +21,7 @@ player.loadImg();
 laser.loadImg();
 //----
 
-// Print movement
+// Print movement of player 
 const printMove = (e) => {
     player.frameId = requestAnimationFrame(() => {
         printMove(e);
@@ -35,6 +36,7 @@ const printMove = (e) => {
             player.moveLeft();
             break;
     }
+    borderTeleport();
     cnt.clearRect(player.x - 10, player.y, player.width + 20, player.height);
 
     cnt.drawImage(player.img, player.x, player.y, player.width, player.height);
@@ -79,6 +81,7 @@ document.addEventListener("keydown", (e) => {
             laser.frameId = requestAnimationFrame(() => {
                 shootLaser(tempX);
             });
+            shote.play();
         }
     }
 });
