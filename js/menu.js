@@ -1,18 +1,23 @@
 "use strict";
+const menu = document.getElementById("menu");
+const game = document.getElementById("game");
 
-// start.onclick = () => {
-//     menu.remove();
-//     game.style.display = "block";
-// };
+const backMusic = new Audio("audio/spaceinvaders1.mp3");
+backMusic.volume = 0.5;
 
-restart.onclick = () => {
-    restartGame();
+let startGame = false;
+
+start.onclick = () => {
+    menu.style.display = "none";
+    game.style.display = "flex";
+    startGame = true;
+    backMusic.play();
 };
 
-const restartGame = () => {
+restart.onclick = () => {
     player.gameOver = false;
 
-    canvas.style.display = "block";
+    canvas.style.display = "flex";
     infoHolder.className = "";
     text.style.display = "none";
 
@@ -20,3 +25,8 @@ const restartGame = () => {
     player.loadImg();
     laser.loadImg();
 };
+
+menuBtn.onclick = () => {
+    menu.style.display = "flex";
+    game.style.display = "none";
+}
