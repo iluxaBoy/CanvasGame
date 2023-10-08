@@ -14,18 +14,29 @@ body {
     color: #76FF03;
 }
 
+#menu {
+    display: flex;
+    justify-content: space-between;
+    margin: 150px;
+    height: 250px;
+}
+
 #menu h1 {
     font-size: 60px;
 }
 
-#game {
-    /* display: none; */
+.tutorial {
     display: flex;
+    flex-direction: column;
+    justify-content: end;
+}
+
+#game {
+    display: none;
     justify-content: center;
 }
 
 canvas {
-    /* display: none; */
     height: 700px;
     width: 600px;
     background-color: #000;

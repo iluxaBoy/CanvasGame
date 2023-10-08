@@ -4,6 +4,10 @@
 class Alien extends Entety {
     moveAlien = () => { this.y += step };
     alienPrintMove = () => {
+        if (!startGame) {
+            return;
+        }
+
         if (player.gameOver) {
             cnt.clearRect(0, 0, canvas.width, canvas.height);
 
@@ -21,6 +25,8 @@ class Alien extends Entety {
 
             this.y = randomPositionY();
             this.x = randomPositionX();
+
+            alienKill.play();
 
             this.stop = false;
         }
