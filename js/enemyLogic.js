@@ -47,7 +47,7 @@ class Alien extends Entety {
 };
 
 const alienImg = new Image();
-const amountOfAliens = 0;
+const amountOfAliens = 8;
 
 let alienArr = [];
 

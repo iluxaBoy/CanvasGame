@@ -1,6 +1,4 @@
 "use strict";
-const shoot = new Audio("audio/shoot.wav");
-// shoot.volume = 1;
 class Player extends Entety {
     moveRight = () => { player.x += step };
     moveLeft = () => { player.x -= step };
@@ -81,7 +79,7 @@ document.addEventListener("keydown", (e) => {
             laser.frameId = requestAnimationFrame(() => {
                 shootLaser(tempX);
             });
-            shote.play();
+            shoot.play();
         }
     }
 });
